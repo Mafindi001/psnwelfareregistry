@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PSN Taraba Welfare Registry</title>
+  <meta name="description" content="A PSN Taraba Welfare Registry" />
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="https://psnconference.com.ng/img/logo.png" alt="PSN Taraba" class="logo" />
+        <div class="brand-text">
+          <h1>PSN Taraba Welfare Registry</h1>
+          <p class="tagline">A PSN Taraba Welfare Registry</p>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <button id="nav-toggle" class="nav-toggle">☰</button>
+        <ul class="nav-list">
+          <li><a href="#member-dashboard">Member Dashboard</a></li>
+          <li><a href="#calendar">Calendar</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#admin">Admin</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="member-dashboard" class="panel">
+      <h2>Member Dashboard</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Upcoming reminders (next 30 days)</h3>
+          <ul id="upcoming-list" class="reminder-list">
+            <!-- JS will populate sample items -->
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Quick Actions</h3>
+          <button id="quick-edit" class="btn">Quick edit profile</button>
+          <button id="view-profile" class="btn btn-secondary">View / Edit full profile</button>
+        </div>
+
+        <div class="card full-form" id="profile-form-card">
+          <h3>Profile / Edit Profile</h3>
+          <form id="profile-form">
+            <!-- Schema: membershipNumber, fullName, email, phone, dateOfBirth, anniversary, address, status, reminderOptIn, trustedContacts (comma separated) -->
+            <label>Membership Number<input name="membershipNumber" type="text" placeholder="MS-0001" /></label>
+            <label>Full name<input name="fullName" type="text" required /></label>
+            <label>Email<input name="email" type="email" required /></label>
+            <label>Phone<input name="phone" type="tel" /></label>
+            <label>Date of birth<input name="dateOfBirth" type="date" /></label>
+            <label>Anniversary<input name="anniversary" type="date" /></label>
+            <label>Address<textarea name="address"></textarea></label>
+            <label>Status<select name="status"><option>Active</option><option>Inactive</option><option>Alumnus</option></select></label>
+            <label>Reminder opt-in<select name="reminderOptIn"><option value="true">Yes</option><option value="false">No</option></select></label>
+            <label>Trusted contacts (comma separated emails)<input name="trustedContacts" type="text" placeholder="friend@example.com, spouse@example.com" /></label>
+            <div class="form-actions">
+              <button type="submit" class="btn">Save profile</button>
+              <button type="button" id="reset-form" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar" class="panel">
+      <h2>Calendar view</h2>
+      <p>Member entries (birthdays, anniversaries) — placeholder calendar below.</p>
+      <div id="calendar-grid" class="calendar-grid">
+        <!-- Simple placeholder: JS will render events -->
+      </div>
+    </section>
+
+    <section id="settings" class="panel">
+      <h2>Settings</h2>
+      <div class="card">
+        <h3>Email preferences</h3>
+        <label><input type="checkbox" name="pref_newsletter" /> Receive newsletters</label>
+        <label><input type="checkbox" name="pref_reminders" checked /> Receive reminders</label>
+      </div>
+
+      <div class="card">
+        <h3>Trusted contacts</h3>
+        <p>Manage trusted contacts who may receive reminders on your behalf.</p>
+      </div>
+    </section>
+
+    <section id="admin" class="panel">
+      <h2>Admin / Officers</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Admin Dashboard</h3>
+          <ul class="stats">
+            <li>Total members: <strong id="stat-members">-</strong></li>
+            <li>Upcoming reminders: <strong id="stat-upcoming">-</strong></li>
+            <li>Failed email rate: <strong id="stat-failed">-</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Member Management</h3>
+          <input id="member-search" placeholder="Search members by name, email, membership number" />
+          <div class="member-actions">
+            <button id="export-csv" class="btn">Export CSV</button>
+            <button id="bulk-message" class="btn btn-secondary">Bulk message</button>
+          </div>
+          <table id="member-table" class="member-table">
+            <thead><tr><th>Membership #</th><th>Name</th><th>Email</th><th>Actions</th></tr></thead>
+            <tbody><!-- populated by JS --></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Event Manager</h3>
+          <p>Manually trigger reminders, add public events, or bulk message members.</p>
+          <button class="btn">Add event</button>
+        </div>
+
+        <div class="card">
+          <h3>Reminders Log</h3>
+          <p>History of sent reminders, failures, retries (placeholder)</p>
+        </div>
+
+        <div class="card">
+          <h3>System Settings</h3>
+          <p>Email provider setup, reminder schedule, privacy editor (placeholder)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <p>If you need help or want to report issues, email <a href="mailto:mafindi001@gmail.com">mafindi001@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; PSN Taraba Welfare Registry</p>
+    </div>
+  </footer>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
